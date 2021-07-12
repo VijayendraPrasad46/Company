@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Company.Employee>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2 style="color: forestgreen; font-family: verdana">Employee Details</h2>
+
+<p style="color: #1E90FF; font-family: verdana">
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th style="color: #1E90FF; font-family: verdana">
+            @Html.DisplayNameFor(model => model.FirstName)
+        </th>
+        <th style="color: #1E90FF; font-family: verdana">
+            @Html.DisplayNameFor(model => model.LastName)
+        </th>
+        <th style="color: #1E90FF; font-family: verdana">
+            @Html.DisplayNameFor(model => model.Gender)
+        </th>
+        <th style="color: #1E90FF; font-family: verdana">
+            @Html.DisplayNameFor(model => model.DOB)
+        </th>
+        <th style="color: #1E90FF; font-family: verdana">
+            @Html.DisplayNameFor(model => model.Address)
+        </th>
+        <th style="color: #1E90FF; font-family: verdana">
+            @Html.DisplayNameFor(model => model.EmailID)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Gender)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DOB)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Address)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmailID)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.EmployeeId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.EmployeeId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.EmployeeId })
+        </td>
+    </tr>
+}
+
+</table>
